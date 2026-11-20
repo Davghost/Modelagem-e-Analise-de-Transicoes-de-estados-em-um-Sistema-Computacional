@@ -7,7 +7,7 @@ def gerar_estados(N):
                 estado = [t, cpu, d1, d2]
                 estados.append(estado)
     return estados
-# Testando
+
 N = int(input("Digite n:"))
 estados = gerar_estados(N)
 for estado in estados:
