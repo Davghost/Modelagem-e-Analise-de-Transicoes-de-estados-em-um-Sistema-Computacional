@@ -9,5 +9,22 @@ Cada combinação encontrada é organizada em uma lista no formato [T, CPU, D1, 
 geral de estados. Por fim, o programa recebe N do usuário, executa a função, imprime todos os 
 estados encontrados e mostra a quantidade total de estados possíveis.
 
-Passo 2: Adicionar matriz
+Passo 2: Validação da matriz de roteamento
+Foi criada a função validar_matriz_roteamento(matriz), responsável por verificar se a matriz de roteamento 
+está corretamente definida. Para isso, verifica se a matriz não está vazia, se possui a mesma quantidade de 
+linhas e colunas, se não apresenta probabilidades negativas e se a soma das probabilidades de cada linha é igual a 1, 
+considerando uma pequena margem de tolerância para diferenças numéricas.
 
+Passo 3: Identificação dos destinos possíveis
+A função destinos_possiveis(estacao, matriz_roteamento) percorre a linha correspondente à estação na matriz de 
+roteamento e identifica quais destinos possuem probabilidade maior que zero. Dessa forma, permite reconhecer para 
+quais estações uma consulta pode ser encaminhada, desconsiderando os destinos cuja probabilidade de transição é nula.
+
+Passo 4: Localização dos estados e preparação da matriz de transição
+
+Foram desenvolvidas duas funções auxiliares para preparar a construção da matriz de transição P. 
+A função indice_do_estado(estado_procurado, estados) procura um estado específico na lista de estados possíveis e retorna
+sua posição, permitindo identificar sua localização na futura matriz. Caso o estado não seja encontrado, retorna -1. 
+Já a função criar_matriz_vazia(tamanho) cria uma matriz quadrada preenchida com zeros, utilizando a quantidade de 
+estados possíveis para definir suas dimensões. Essa matriz será utilizada posteriormente para armazenar as 
+probabilidades de transição entre os estados computacionais.
